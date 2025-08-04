@@ -352,65 +352,136 @@
 </div><!-- Pricing End -->
 
 
-    <!-- Appointment Section -->
-    <div class="row justify-content-center bg-appointment mx-0">
-        <div class="col-lg-6 py-5">
-            <div class="p-5 my-5" style="background: rgba(33, 30, 28, 0.7);">
-                <h1 class="text-white text-center mb-4">Make Appointment at BBrave Beauty Studio</h1>
-                <form action="/submit-appointment" method="POST" novalidate>
-                    <div class="form-row">
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <input type="text" name="name" class="form-control bg-transparent p-4" placeholder="Your Name" required aria-label="Your Name" />
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <input type="email" name="email" class="form-control bg-transparent p-4" placeholder="Your Email" required aria-label="Your Email" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <div class="date" id="date" data-target-input="nearest">
-                                    <input type="text" name="date" class="form-control bg-transparent p-4 datetimepicker-input" placeholder="Select Date" data-target="#date" data-toggle="datetimepicker" aria-label="Select Date" required />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <div class="time" id="time" data-target-input="nearest">
-                                    <input type="text" name="time" class="form-control bg-transparent p-4 datetimepicker-input" placeholder="Select Time" data-target="#time" data-toggle="datetimepicker" aria-label="Select Time" required />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <select name="service" class="custom-select bg-transparent px-4" style="height: 47px;" required aria-label="Select A Service">
-                                    <option value="" disabled selected>Select A Service</option>
-                                    <opti<select name="service" class="custom-select bg-transparent px-4" style="height: 47px;" required aria-label="Select A Service">
-    <option value="" disabled selected>Select A Service</option>
-    <option value="hair-styling">Hair Styling</option>
-    <option value="nail-care">Nail Care</option>
-    <option value="skincare-products">Skincare Products</option>
-    <option value="eyelash-extensions">Eyelash Extensions</option>
-</select>
-
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <button class="btn btn-primary btn-block" type="submit" style="height: 47px;">Make Appointment</button>
-                        </div>
-                    </div>
-                </form>
+<!-- Appointment Section -->
+<div class="row justify-content-center bg-appointment mx-0">
+  <div class="col-lg-6 py-5">
+    <div class="p-5 my-5" style="background: rgba(33, 30, 28, 0.7);">
+      <h1 class="text-white text-center mb-4">Make Appointment at BBrave Beauty Studio</h1>
+      <form id="whatsapp-appointment-form" novalidate>
+        <div class="form-row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <input type="text" name="name" id="appt-name" class="form-control bg-transparent p-4" placeholder="Your Name" required aria-label="Your Name" />
             </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <input type="email" name="email" id="appt-email" class="form-control bg-transparent p-4" placeholder="Your Email" required aria-label="Your Email" />
+            </div>
+          </div>
         </div>
+
+        <div class="form-row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <div class="date" id="date" data-target-input="nearest">
+                <input type="text" name="date" id="appt-date" class="form-control bg-transparent p-4 datetimepicker-input" placeholder="Select Date" data-target="#date" data-toggle="datetimepicker" aria-label="Select Date" required />
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <div class="time" id="time" data-target-input="nearest">
+                <input type="text" name="time" id="appt-time" class="form-control bg-transparent p-4 datetimepicker-input" placeholder="Select Time" data-target="#time" data-toggle="datetimepicker" aria-label="Select Time" required />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row align-items-center">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <select name="service" id="appt-service" class="custom-select bg-transparent px-4" style="height: 47px;" required aria-label="Select A Service">
+                <option value="" disabled selected>Select A Service</option>
+                <option value="Hair Styling & Blowout">Hair Styling &amp; Blowout</option>
+                <option value="Hair Coloring">Hair Coloring</option>
+                <option value="Hair Treatments">Hair Treatments</option>
+                <option value="Hair Extensions">Hair Extensions</option>
+                <option value="Luxury Facial & Skin Treatment">Luxury Facial &amp; Skin Treatment</option>
+                <option value="Professional Makeup Artistry">Professional Makeup Artistry</option>
+                <option value="Manicure & Pedicure">Manicure &amp; Pedicure</option>
+                <option value="Eyelash Extensions & Brow Shaping">Eyelash Extensions &amp; Brow Shaping</option>
+                <option value="Relaxation & Therapeutic Massage">Relaxation &amp; Therapeutic Massage</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <button class="btn btn-primary btn-block" type="submit" id="btn-whatsapp-book" style="height: 47px;">
+              Book via WhatsApp
+            </button>
+          </div>
+        </div>
+
+        <div class="form-row mt-2">
+          <div class="col-12">
+            <div class="form-group">
+              <textarea name="notes" id="appt-notes" class="form-control bg-transparent p-4" placeholder="Any special requests or notes (optional)" rows="2" aria-label="Extra Notes"></textarea>
+            </div>
+          </div>
+        </div>
+      </form>
+    
     </div>
+  </div>
 </div>
 <!-- Service End -->
+
+<script>
+  (function () {
+    const form = document.getElementById('whatsapp-appointment-form');
+    const whatsappNumber = '264812345678'; // Namibia number without + or spaces
+
+    function buildMessage(data) {
+      let msg = `Hello BBrave Beauty Studio,%0A` +
+                `I'd like to book an appointment.%0A` +
+                `*Name:* ${data.name}%0A` +
+                `*Email:* ${data.email}%0A` +
+                `*Service:* ${data.service}%0A` +
+                `*Preferred Date:* ${data.date}%0A` +
+                `*Preferred Time:* ${data.time}%0A`;
+      if (data.notes) {
+        msg += `*Notes:* ${data.notes}%0A`;
+      }
+      msg += `%0AThank you!`;
+      return msg;
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById('appt-name').value.trim();
+      const email = document.getElementById('appt-email').value.trim();
+      const date = document.getElementById('appt-date').value.trim();
+      const time = document.getElementById('appt-time').value.trim();
+      const service = document.getElementById('appt-service').value;
+      const notes = document.getElementById('appt-notes').value.trim();
+
+      if (!name || !email || !date || !time || !service) {
+        alert('Please complete all required fields before proceeding.');
+        return;
+      }
+
+      const message = buildMessage({ name, email, date, time, service, notes });
+      const encodedMessage = encodeURIComponent(message);
+
+      const isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent);
+      if (isMobile) {
+        // Try app protocol first
+        const appLink = `whatsapp://send?phone=${whatsappNumber}&text=${message}`;
+        window.location.href = appLink;
+        // Fallback to web after short delay
+        setTimeout(() => {
+          window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+        }, 500);
+      } else {
+        // Desktop/web
+        const webLink = `https://wa.me/${whatsappNumber}?text=${message}`;
+        window.open(webLink, '_blank');
+      }
+    });
+  })();
+</script>
+
 
 
 <!-- Team Start -->
@@ -501,7 +572,7 @@
 <!-- Team End -->
 
 
-<!--<!-- Testimonial Start -->
+<!-- Testimonial Start -->
 <div class="container-fluid py-5">
     <div class="container py-5">
         <div class="row align-items-center">
